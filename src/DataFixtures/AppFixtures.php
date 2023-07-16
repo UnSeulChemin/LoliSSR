@@ -30,7 +30,7 @@ class AppFixtures extends Fixture
         // Filler, Image Name
         $filler = 1;
 
-        for ($i = 1; $i <= 126; $i++)
+        for ($i = 1; $i <= 121; $i++)
         {
             $image = new Image();
             $image->setName($filler . '.jpg');
