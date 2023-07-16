@@ -1,11 +1,11 @@
 
-# git rm -r --cached .
-# git add .
-# git commit -m ".gitignore est maintenant fonctionnel"
-
 /symfony.txt
 /public/db
 /public/assets/images
+
+# git rm -r --cached .
+# git add .
+# git commit -m ".gitignore est maintenant fonctionnel"
 
 ###> symfony/framework-bundle ###
 /.env.local
