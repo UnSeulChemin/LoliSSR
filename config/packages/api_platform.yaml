@@ -1,0 +1,17 @@
+api_platform:
+    title: 'LoliSSR API'
+    description: 'LoliSSR - API'
+    version: '0.0.1'
+    show_webby: false
+
+    openapi:
+        contact: 
+            name: LoliSSR
+            url: https://www.google.com
+            email: lolissr@contact.com
+
+    swagger:
+        api_keys:
+            JWT:
+                name: Authorization
+                type: header

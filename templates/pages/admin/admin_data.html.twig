@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Data{% endblock %}
+
+{% block body %}
+
+<article>
+
+    <h2>All Datas</h2>
+
+    {% for message in app.flashes('success') %}
+        <div class="success-flash">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    <table>
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Users</th>
+                <th scope="row">Admins</th>
+                <th scope="col">Contacts</th>
+                <th scope="col">Images</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">Total</td>
+                <td>{{ users|length }}</td>
+                <td>{{ admins|length }}</td>
+                <td>{{ contacts|length }}</td>
+                <td>{{ images|length }}</td>
+            </tr>
+            <tr>
+                <td scope="row">Page</td>
+                <td><a href="{{ path('app_admin_users') }}" target="_blank">Users</a></td>
+                <td><a href="{{ path('app_admin_admins') }}" target="_blank">Admins</a></td>
+                <td><a href="{{ path('app_admin_contacts') }}" target="_blank">Contacts</a></td>
+                <td><a href="{{ path('app_admin_images') }}" target="_blank">Images</a></td>
+            </tr>            
+        </tbody>
+    </table>
+
+</article>
+
+{% endblock %}

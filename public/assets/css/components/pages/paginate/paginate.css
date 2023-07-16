@@ -1,0 +1,18 @@
+#navigation
+{
+    padding: 20px 0;
+}
+
+#navigation nav ul
+{
+    display: flex;
+    align-items: center;
+}
+
+#navigation nav ul li a
+{
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 2px solid var(--color-black);
+    border-radius: 10px;
+}

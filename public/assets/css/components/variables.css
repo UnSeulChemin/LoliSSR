@@ -1,0 +1,16 @@
+:root
+{
+    /* Font */
+    --font-family: 'Open Sans', sans-serif;
+
+    /* Color */
+    --background-color-body: #d9deda;
+    --background-color-form: #ebebeb;
+    --background-color-link: #333333;
+    --background-color-success-flash: #32CD32;
+    --background-color-warning-flash: #DC143C;
+    --color-link: #aaaaaa;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-red: #FF0000;
+}

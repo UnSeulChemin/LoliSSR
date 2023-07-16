@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Images{% endblock %}
+
+{% block body %}
+
+<article>
+
+    <h2>All images</h2>
+    
+    <p class="padding-bottom-none"><span class="bold">Total images :</span> {{ images|length }}</p>
+
+    <div class="hr"></div>
+
+    {% for message in app.flashes('success') %}
+        <div class="success-flash">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    {% for image in images %}
+        <div class="margin-bottom">
+            <div>
+                <p><span class="bold">Name :</span> {{ image.name }}</p>
+            </div>
+            <div>
+                <p><span class="bold">Type :</span> {{ image.type }}</p>
+            </div>
+            <div>
+                <p><span class="bold">Gender :</span> {{ image.gender }}</p>
+            </div>
+            <div>
+                <p><span class="bold">CreatedAt :</span> {{ image.createdAt|date('d/m/Y') }}</p>
+            </div>
+            <div class="flex">
+                <a class="a-button margin-right-min" href="{{ path('app_admin_images_edit', { id: image.id }) }}">Modifier</a>
+                {# <a class="a-button" href="{{ path('app_admin_images_delete', { id: image.id }) }}">Supprimer</a> #}
+                {# Ajax #}
+                <a class="a-button margin-left-min" onclick="deleteImage('{{ path('app_admin_images_delete', { id: image.id }) }}')">Supprimer</a>
+            </div>
+        </div>
+    {% endfor %}
+    
+</article>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+
+function deleteImage(path)
+{
+    let text = "Are you sure you want to delete this image?";
+
+    if (confirm(text) === true)
+    {
+        $.ajax({
+            type: "GET",
+            url: path
+        }).done(function()
+        {
+            alert('This image has been deleted.');
+            window.location.reload();
+        });
+    }
+}
+
+</script>
+{% endblock %}

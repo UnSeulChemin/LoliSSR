@@ -1,0 +1,24 @@
+body.dark
+{
+    /* Color */
+    --background-color-body: #1c1e21;
+    --background-color-form: #aaaaaa;
+    --background-color-link: #000;
+    --color-white: #ffffff;
+    --color-black: #333333;
+}
+
+body.dark #main-section div p
+{
+    color: var(--color-white);
+}
+
+body.dark #main-section .container-img .dark-mode
+{
+    background-color: var(--color-black)
+}
+
+body.dark #main-section .container-img .dark-mode:hover
+{
+    background-color: var(--background-color-link);
+}

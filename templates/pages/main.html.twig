@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<section id="main-section">
+    <div>
+        <p>LoliSSR find your favorite waifu !</p>
+        <p>Currently on page {{ (app.request.attributes.get('number')) ? app.request.attributes.get('number') : '1' }}.</p>
+    </div>
+    <div class="container-img">
+        <img class="dark-mode" src="{{ asset('assets/images/mode/dark.png') }}" alt="dark-mode">
+    </div>
+</section>
+
+{% set compteur = 0 %}
+
+{% for image in images %}
+
+    {% if compteur == 0 %}
+
+    <div class="row-images">
+
+    {% endif %}
+
+        <div class="show-images">
+            <img src="{{ asset('assets/images/loli/' ~ image.name)}}" alt="{{ image.name }}">
+            <p>{{ image.createdAt|date('d/m/Y') }}</p>
+            <a href="{{ path('app_main_loli_type', {'type': image.type, 'number': '1'}) }}">List Type : {{ image.type }}</a>
+            <a href="{{ path('app_main_loli_gender', {'gender': image.gender, 'number': '1'}) }}">Gender : {{ image.gender }}</a>
+        </div>
+
+        {% set compteur = compteur + 1 %}
+
+    {% if (compteur % 4 == 0 or loop.last) %}
+
+        {% set compteur = 0 %}
+
+        </div>
+
+    {% endif %}
+
+{% endfor %}
+
+<div id="navigation">
+    {{ knp_pagination_render(images, 'pages/paginate/paginate.html.twig') }}
+</div>
+
+{% endblock %}

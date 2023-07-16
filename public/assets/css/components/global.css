@@ -1,0 +1,244 @@
+/* Scroll Bar */
+::-webkit-scrollbar
+{
+    width: 12px;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: var(--color-link);
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: var(--background-color-link);
+}
+
+@supports (scrollbar-color: var(--background-color-link) var(--color-link))
+{
+    *
+    {
+        scrollbar-color: var(--background-color-link) var(--color-link);
+        scrollbar-width: auto;
+    }
+}
+/**/
+
+/* Webkit */
+input::-webkit-input-placeholder
+{
+    text-align: center;
+}
+
+textarea::-webkit-input-placeholder
+{
+    text-align: center;
+}
+
+input::-moz-placeholder
+{
+    text-align: center;
+}
+
+textarea::-moz-placeholder
+{
+    text-align: center;
+}
+
+input:-ms-input-placeholder
+{
+    text-align: center;
+}
+
+textarea:-ms-input-placeholder
+{
+    text-align: center;
+}
+/**/
+
+body
+{
+    font-family: var(--font-family);
+    background-color: var(--background-color-body);
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h2
+{
+    font-size: 1.3em;
+    font-weight: bold;
+
+    padding-bottom: 20px;
+}
+
+p
+{
+    font-size: 1.2em;
+
+    padding-bottom: 10px;
+}
+
+a
+{
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-link);
+    background-color: var(--background-color-link);
+}
+
+a:hover
+{
+    color: var(--color-white);
+}
+
+button
+{
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--color-link);
+    background-color: var(--background-color-link);
+    width: 180px;
+
+    margin-bottom: 20px;
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover
+{
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+img
+{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+}
+
+form
+{
+    text-align: center;
+    background-color: var(--background-color-form);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 30px 0;
+    padding: 30px 0;
+    border: 2px solid var(--color-black);
+    border-radius: 5px;
+}
+
+form div
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label
+{
+    font-size: 1.1em;
+
+    padding-bottom: 10px;
+}
+
+input
+{
+    margin-bottom: 10px;
+}
+
+textarea
+{
+    letter-spacing: 1px;
+    line-height: 1.2;
+    resize: none;
+    width: 180px;
+
+    border-radius: 5px;
+}
+
+article
+{
+    text-align: center;
+    background-color: var(--background-color-form);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin: 30px 0;
+    padding: 30px 0;
+    border: 2px solid var(--color-black);
+    border-radius: 5px;
+}
+
+article div
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article div:last-of-type
+{
+    margin-bottom: 0;
+}
+
+article nav ul li
+{
+    margin-bottom: 20px;
+}
+
+article nav ul li:last-of-type
+{
+    margin-bottom: 0;
+}
+
+table
+{
+    width: 40%;
+
+    background-color: var(--background-color-link);
+}
+
+table, th, td
+{
+    padding: 5px 0;
+    border: 2px solid #000;
+}
+
+table thead tr th
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+table tbody tr td
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-link);
+}
+
+table tbody tr td:first-of-type
+{
+    color: var(--color-white);
+}
+
+table tbody tr td a
+{
+    font-size: inherit;
+}

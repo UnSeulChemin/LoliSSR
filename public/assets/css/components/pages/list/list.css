@@ -1,0 +1,14 @@
+#list nav
+{
+    margin-bottom: 20px;
+}
+
+#list nav:last-of-type
+{
+    margin-bottom: 0;
+}
+
+#list nav ul li a
+{
+    border: 2px solid var(--color-black);
+}

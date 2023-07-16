@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+    <h2>Send message</h2>
+
+    {% for message in app.flashes('success') %}
+        <div class="success-flash">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('warning') %}
+        <div class="warning-flash">
+            <p class="message-flash">{{ message }}</p>
+            {{ form_errors(form.email) }}
+            {{ form_errors(form.name) }}
+            {{ form_errors(form.subject) }}
+            {{ form_errors(form.message) }}
+        </div>
+    {% endfor %}
+
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+    </div>
+
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    <div>
+        {{ form_label(form.subject) }}
+        {{ form_widget(form.subject) }}
+    </div>
+
+    <div class="form-last-div-space">
+        {{ form_label(form.message) }}
+        {{ form_widget(form.message) }}
+    </div>
+
+    <div>
+        {{ form_label(form.submit) }}
+        {{ form_widget(form.submit) }}
+    </div>
+
+    {% if app.user %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <h2 class="padding-top">Read all messages</h2>
+            <a class="a-button" href="{{ path('app_admin_contacts') }}">Show contacts</a>
+        {% endif %}
+    {% endif %} 
+
+{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+main
+{
+    padding: 0 30px;
+}
+
+main #main-section
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 0 20px 0;
+}
+
+main #main-section div p:last-of-type
+{
+    padding-bottom: 0;
+}
+
+main .row-images
+{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+}
+
+main .row-images .show-images
+{
+    overflow: hidden;
+    width: 24%;
+
+    margin: 10px;
+    border: 2px solid var(--color-black);
+    border-radius: 5px;
+}
+
+main .row-images .show-images p
+{
+    color: var(--color-white);
+    background-color: var(--background-color-link);
+    font-weight: bold;
+
+    padding: 10px 20px;
+    border-top: 2px solid var(--color-black);
+}
+
+main .row-images .show-images a
+{
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--color-black);
+}
+
+main .row-images .show-images a:first-of-type
+{
+    border-top: 2px solid var(--color-black);
+}
+
+main .row-images .show-images a:last-of-type
+{
+    border-bottom: none;
+}

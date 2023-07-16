@@ -1,0 +1,8 @@
+{% for chat in chats %}
+    <div class="chat_div">
+        <div>
+            <p class="bold">{{ chat.name }}</p>
+            <p class="padding-bottom-none">{{ chat.message }}</p>
+        </div>
+    </div>
+{% endfor %}

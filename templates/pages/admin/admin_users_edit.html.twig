@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+    <h2>Edit User</h2>
+
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+    </div>
+
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    <div class="form-last-div-space">
+        {{ form_label(form.roles) }}
+        {{ form_widget(form.roles) }}
+    </div>
+
+    <div>
+        {{ form_label(form.submit) }}
+        {{ form_widget(form.submit) }}
+    </div>    
+
+{{ form_end(form) }}
+
+{% endblock %}

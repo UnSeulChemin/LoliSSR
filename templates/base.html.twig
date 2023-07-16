@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LoliSSR {% block title %}{% endblock %}</title>
+  	    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/favicon/favicon.png') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        {# Feuilles de styles #}
+        <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+        {# Scripts JS #}
+        <script type="text/javascript" src="{{ asset('assets/js/jquery-3.6.4.min.js') }}" defer></script>
+        <script type="text/javascript" src="{{ asset('assets/js/script.js') }}" defer></script>
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body class="light">
+        {# Header #}
+        {% include "_partials/_header.html.twig" %}
+        
+        {# Main #}
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+    </body>
+</html>

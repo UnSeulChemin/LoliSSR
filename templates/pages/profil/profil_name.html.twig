@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Name{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+    <h2>Edit name</h2>
+
+    {% for message in app.flashes('warning') %}
+        <div class="warning-flash">
+            <p class="padding-bottom-none bold">{{ message }}</p>
+            {{ form_errors(form.name) }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('warning-old-password') %}
+        <div class="warning-flash" id="profil_password_flash">
+            <p class="padding-bottom-none bold">{{ message }}</p>
+            <ul>
+                <li>Password error.</li>
+            </ul>
+        </div>
+    {% endfor %}
+
+    <div>
+        {{ form_label(form.oldPassword) }}
+        {{ form_widget(form.oldPassword) }}
+    </div>
+
+    <div class="form-last-div-space">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    <div>
+        {{ form_label(form.submit) }}
+        {{ form_widget(form.submit) }}
+    </div>
+
+{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,186 @@
+/* Summary : 
+Marge, Flash, Form, Other
+*/
+
+/* Marge */
+.margin-right-min
+{
+    margin-right: 10px;
+}
+
+.margin-left-min
+{
+    margin-left: 10px;
+}
+
+.margin-bottom
+{
+    margin-bottom: 20px;
+}
+
+.margin-bottom-none
+{
+    margin-bottom: 0;
+}
+
+.padding-top
+{
+    padding-top: 20px;
+}
+
+.padding-bottom-none
+{
+    padding-bottom: 0;
+}
+/**/
+
+/* Flash */
+.success-flash
+{
+    background-color: var(--background-color-success-flash);
+    width: 50%;
+
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.warning-flash
+{
+    background-color: var(--background-color-warning-flash);
+    width: 50%;
+
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.message-flash
+{
+    font-weight: bold;
+
+    padding-bottom: 0;
+}
+
+.warning-flash ul li
+{
+    font-size: 1.1em;
+
+    padding-top: 20px;
+}
+/**/
+
+/* Form */
+.form-last-div-space
+{
+    margin-bottom: 20px;
+}
+
+.form-last-div-space input
+{
+    margin-bottom: 0;
+}
+
+.font-last-div-chexbox-space
+{
+    margin-bottom: 20px;
+}
+
+.font-last-div-chexbox-space
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.font-last-div-chexbox-space label
+{
+    margin-right: 10px;
+    padding-bottom: 0;
+}
+
+.font-last-div-chexbox-space input
+{
+    margin: 0;
+}
+/**/
+
+/* Other */
+.a-button
+{
+    width: 180px;
+    cursor: pointer;
+
+    padding: 5px 0;
+    border: 2px solid var(--background-color-link);
+    border-radius: 5px;
+}
+
+.a-button:hover
+{
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+.a-button-delete
+{
+    width: 180px;
+    cursor: pointer;
+    color: var(--color-red);
+    /* background-color: var(--color-link); */
+
+    padding: 5px 0;
+    border: 2px solid var(--background-color-link);
+    border-radius: 5px;
+}
+
+.a-button-delete:hover
+{
+    color: var(--color-red);
+}
+
+.container-img
+{
+    overflow: hidden;
+
+    display: flex;
+
+    border-radius: 10px;
+}
+
+.dark-mode
+{
+    cursor: pointer;    
+    background-color: var(--background-color-link);
+    width: 35px;
+
+    padding: 10px;
+}
+
+.dark-mode:hover
+{
+    background-color: var(--color-black);
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.none
+{
+    display: none;
+}
+
+.hr
+{
+    width: 30%;
+
+    margin: 20px 0;
+    border: 1px solid var(--background-color-link);
+}
+
+.flex
+{
+    display: flex;
+    flex-direction: initial;
+}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admins{% endblock %}
+
+{% block body %}
+
+<article>
+
+    <h2>All admins</h2>
+    
+    <p class="padding-bottom-none"><span class="bold">Total admins :</span> {{ admins|length }}</p>
+
+    <div class="hr"></div>
+
+    {% for message in app.flashes('success') %}
+        <div class="success-flash">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    {% for admin in admins %}
+        <div class="margin-bottom">
+            <div>
+                <p><span class="bold">Email :</span> {{ admin.email }}</p>
+            </div>
+            <div>
+                <p><span class="bold">Name :</span> {{ admin.name }}</p>
+            </div>
+            <div>
+                <p><span class="bold">Role :</span>
+                    {% for role in admin.roles %}
+                      {{ role }}
+                    {% endfor %}
+                </p>
+            </div>
+            <div>
+                <p><span class="bold">CreatedAt :</span> {{ admin.createdAt|date('d/m/Y') }}</p>
+            </div>
+            <div>
+                <p><span class="bold">UpdatedAt :</span> {{ admin.updatedAt|date('d/m/Y') }}</p>
+            </div>
+            <div>
+                {# <a class="a-button" href="{{ path('app_admin_admins_delete', { id: admin.id }) }}">Supprimer</a> #}
+                {# Ajax #}
+                <a class="a-button" onclick="deleteAdmin('{{ path('app_admin_admins_delete', { id: admin.id }) }}')">Supprimer</a>
+            </div>
+        </div>
+    {% endfor %}
+    
+</article>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+
+function deleteAdmin(path)
+{
+    let text = "Are you sure you want to delete this admin?";
+
+    if (confirm(text) === true)
+    {
+        $.ajax({
+            type: "GET",
+            url: path
+        }).done(function()
+        {
+            alert('This admin has been deleted.');
+            window.location.reload();
+        });
+    }
+}
+
+</script>
+{% endblock %}

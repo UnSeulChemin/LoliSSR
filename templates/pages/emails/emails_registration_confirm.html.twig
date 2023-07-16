@@ -1,0 +1,6 @@
+{% extends 'base.email.html.twig' %}
+
+{% block body %}
+    <h1>Dear {{ user.name }}, your registration has be succefully done.</h1>
+    <p>You can now login on LoliSSR with your email <span style="font-weight: bold;">{{ user.email }}</span> and your assigned password.</p>
+{% endblock %}

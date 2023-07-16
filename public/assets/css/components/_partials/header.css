@@ -1,0 +1,40 @@
+header
+{
+    background-color: var(--background-color-link);
+}
+
+header nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+}
+
+header nav ul
+{
+    display: flex;
+    align-items: center;
+}
+
+header nav ul h1
+{
+    margin-right: 10px;
+}
+
+header nav ul h1 a
+{
+    font-size: 1.4em;
+    color: var(--color-white);
+}
+
+header nav ul li
+{
+    margin-right: 10px;
+}
+
+header nav ul li:last-of-type
+{
+    margin-right: 0;
+}

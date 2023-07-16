@@ -1,0 +1,29 @@
+<header>
+    <nav>
+        <ul>
+            <h1><a href="{{ path('app_main_index') }}">LoliSSR</a></h1>
+            <li><a href="{{ path('app_list_index') }}">List</a></li>
+            {% if app.user %}
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('app_contact_index') }}">Contact</a></li>
+                    {# <li><a href="{{ path('app_chat_index') }}">Chat</a></li> #}
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('app_admin_index') }}">Admin</a></li>
+                    <li><a href="/api" target="_blank">API</a></li>
+                {% endif %}
+            {% endif %}
+        </ul>
+        <ul>
+            {% if app.user %}
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('app_profil_index') }}">{{ app.user.name|capitalize }}</a></li>
+                    <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                {% endif %}
+            {% else %}
+                <li><a href="{{ path('app_register') }}">Register</a></li>
+                <li><a href="{{ path('app_login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

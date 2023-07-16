@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+    <h2>{{ app.user.name|capitalize }}</h2>
+
+    <aside id="chat_loop">
+      {% for chat in chats %}
+          <div class="chat_div">
+              <div>
+                  <p class="bold">{{ chat.name }}</p>
+                  <p class="padding-bottom-none">{{ chat.message }}</p>
+              </div>
+          </div>
+      {% endfor %}
+    </aside>
+
+    <div class="form-last-div-space">
+        {{ form_label(form.message) }}
+        {{ form_widget(form.message) }}
+    </div>
+
+    <div>
+        {{ form_label(form.submit) }}
+        {{ form_widget(form.submit) }}
+    </div>
+
+{{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  setInterval('load_messages()', 1500);
+  function load_messages()
+  {
+    $('#chat_loop').load('{{ path('app_chat_loop') }}'); 
+  }
+</script>
+{% endblock %}

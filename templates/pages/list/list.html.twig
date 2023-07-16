@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List{% endblock %}
+
+{% block body %}
+
+<article id="list">
+
+    <h2>All pictures by type</h2>
+
+    <nav>
+        <ul>
+            <li><a class="a-button" href="{{ path('app_main_loli_type', {'type': '明日方舟', 'number': '1'}) }}" target="_blank">明日方舟</a></li>
+            <li><a class="a-button" href="{{ path('app_main_loli_type', {'type': '原神', 'number': '1'}) }}" target="_blank">原神</a></li>
+        </ul>
+    </nav>
+
+    <h2>All pictures by gender</h2>
+
+    <nav>
+        <ul>
+            <li><a class="a-button" href="{{ path('app_main_loli_gender', {'gender': '女', 'number': '1'}) }}" target="_blank">女</a></li>
+            {# <li><a class="a-button" href="{{ path('app_main_loli_gender', {'gender': '男', 'number': '1'}) }}" target="_blank">男</a></li> #}
+        </ul>
+    </nav>
+
+</article>
+
+{% endblock %}

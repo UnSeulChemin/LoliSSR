@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+<article>
+
+    <h2>Admin part</h2>
+
+    <nav>
+        <ul>
+            <li><a class="a-button" href="{{ path('app_admin_images') }}">Show images</a></li>
+            <li><a class="a-button" href="{{ path('app_admin_users') }}">Show users</a></li>
+            <li><a class="a-button" href="{{ path('app_admin_contacts') }}">Show contact</a></li>            
+            <li><a class="a-button" href="{{ path('app_admin_admins') }}">Show admins</a></li>
+            <li><a class="a-button" href="{{ path('app_admin_data') }}">Show datas</a></li>
+        </ul>
+    </nav>
+
+</article>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Images{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+
+    <h2>Edit Image</h2>
+
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    <div>
+        {{ form_label(form.type) }}
+        {{ form_widget(form.type) }}
+    </div>
+
+    <div class="form-last-div-space">
+        {{ form_label(form.gender) }}
+        {{ form_widget(form.gender) }}
+    </div>
+
+    <div>
+        {{ form_label(form.submit) }}
+        {{ form_widget(form.submit) }}
+    </div>    
+
+{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+<article>
+
+    <h2>Settings profil</h2>
+
+    {% for message in app.flashes('success') %}
+        <div class="success-flash margin-bottom">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('warning') %}
+        <div class="warning-flash margin-bottom">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    <div class="none"></div>
+
+    <nav>
+        <ul>
+            <li><a class="a-button" href="{{ path('app_profil_name', { 'id': app.user.id }) }}">New name</a></li>
+            <li><a class="a-button" href="{{ path('app_profil_password', { 'id': app.user.id }) }}">New Password</a></li>
+            {# <li><a class="a-button" href="{{ path('app_profil_delete', { 'id': app.user.id }) }}">Delete Account</a></li> #}
+            {# Ajax #}
+            <li><a class="a-button-delete" onclick="deleteProfil('{{ path('app_profil_delete', { id: app.user.id }) }}')">Delete Account</a></li>
+        </ul>
+    </nav>
+
+</article>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+
+function deleteProfil(path)
+{
+    let text = "Are you sure you want to delete your account?";
+
+    if (confirm(text) === true)
+    {
+        $.ajax({
+            type: "GET",
+            url: path
+        }).done(function()
+        {
+            alert('Your account has been deleted.');
+            var newPatch = "{{ path('app_login') }}";
+            window.location.replace(newPatch); 
+        });
+    }
+}
+
+</script>
+{% endblock %}

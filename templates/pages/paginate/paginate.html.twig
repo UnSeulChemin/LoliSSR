@@ -1,0 +1,149 @@
+{% if pageCount > 1 %}
+
+<nav aria-label="Pagination">
+
+    <ul class="pagination">
+
+        {# Previous #}
+        {% if previous is defined %}
+            {# Type #}
+            {% if app.request.attributes.get('type') %}
+                <li><a rel="prev" href="{{ path('app_main_loli_type', {
+                        'type': app.request.attributes.get('type'), 'number': previous
+                    }) }}">-</a></li>
+            {# Gender #}      
+            {% elseif app.request.attributes.get('gender') %}
+                <li><a rel="prev" href="{{ path('app_main_loli_gender', {
+                        'gender': app.request.attributes.get('gender'), 'number': previous
+                    }) }}">-</a></li>   
+            {# No Params #}
+            {% else %}
+                <li><a rel="prev" href="{{ path('app_main_loli', {'number': previous}) }}">-</a></li>
+            {% endif %}
+        {% else %}
+            <li style="display: none;"><a class="disabled">-</a></li>
+        {% endif %}
+
+        {# StartPage #}
+        {% if startPage > 1 %}
+            {# Type #}
+            {% if app.request.attributes.get('type') %}
+                <li><a href="{{ path('app_main_loli_type', {
+                        'type': app.request.attributes.get('type'), 'number': 1
+                    }) }}">1</a></li>
+            {# Gender #}
+            {% elseif app.request.attributes.get('gender') %}
+                <li><a href="{{ path('app_main_loli_gender', {
+                        'gender': app.request.attributes.get('gender'), 'number': 1
+                    }) }}">1</a></li>          
+            {# No Params #}
+            {% else %}
+                <li><a href="{{ path('app_main_loli', {'number': 1}) }}">1</a></li>
+            {% endif %}
+
+            {% if startPage == 3 %}
+                {# Type #}
+                {% if app.request.attributes.get('type') %}
+                    <li><a href="{{ path('app_main_loli_type', {
+                            'type': app.request.attributes.get('type'), 'number': 2
+                        }) }}">2</a></li>
+                {# Gender #}
+                {% elseif app.request.attributes.get('gender') %}               
+                    <li><a href="{{ path('app_main_loli_gender', {
+                            'gender': app.request.attributes.get('gender'), 'number': 2
+                        }) }}">2</a></li>
+                {# No Params #}
+                {% else %}
+                    <li><a href="{{ path('app_main_loli', {'number': 2}) }}">2</a></li>
+                {% endif %}
+            {% elseif startPage != 2 %}
+                <li class="ellipsis"></li>
+            {% endif %}
+        {% endif %}
+
+        {# Page #}
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                {# Type #}
+                {% if app.request.attributes.get('type') %}
+                    <li><a href="{{ path('app_main_loli_type', {
+                            'type': app.request.attributes.get('type'), 'number': page
+                        }) }}">{{ page }}</a></li>
+                {# Gender #}
+                {% elseif app.request.attributes.get('gender') %}                
+                    <li><a href="{{ path('app_main_loli_gender', {
+                            'gender': app.request.attributes.get('gender'), 'number': page
+                        }) }}">{{ page }}</a></li>
+                {# No Params #}
+                {% else %}
+                    <li><a href="{{ path('app_main_loli', {'number': page}) }}">{{ page }}</a></li>
+                {% endif %}
+            {% else %}
+                {# <li class="current">{{ page }}</li> #}
+            {% endif %}
+        {% endfor %}
+
+        {# PageCount #}
+        {% if pageCount > endPage %}
+            {% if pageCount > (endPage + 1) %}
+                {% if pageCount > (endPage + 2) %}
+                    <li class="ellipsis"></li>
+                {% else %}
+                    {# Type #}
+                    {% if app.request.attributes.get('type') %}
+                        <li><a href="{{ path('app_main_loli_type', {
+                            'type': app.request.attributes.get('type'), 'number': pageCount - 1
+                        }) }}">{{ pageCount -1 }}</a></li>
+                    {# Gender #}
+                    {% elseif app.request.attributes.get('gender') %}
+                         <li><a href="{{ path('app_main_loli_gender', {
+                            'gender': app.request.attributes.get('gender'), 'number': pageCount - 1
+                        }) }}">{{ pageCount -1 }}</a></li>                   
+                    {# No Params #}
+                    {% else %}
+                        <li><a href="{{ path('app_main_loli', {'number': pageCount - 1}) }}">{{ pageCount -1 }}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            {# Type #}
+            {% if app.request.attributes.get('type') %}
+                <li><a href="{{ path('app_main_loli_type', {
+                    'type': app.request.attributes.get('type'), 'number': pageCount
+                }) }}">{{ pageCount }}</a></li>
+            {# Gender #}
+            {% elseif app.request.attributes.get('gender') %}
+                <li><a href="{{ path('app_main_loli_gender', {
+                    'gender': app.request.attributes.get('gender'), 'number': pageCount
+                }) }}">{{ pageCount }}</a></li>            
+            {# No Params #}
+            {% else %}                       
+                <li><a href="{{ path('app_main_loli', {'number': pageCount}) }}">{{ pageCount }}</a></li>
+            {% endif %}
+        {% endif %}
+
+        {# Next #}
+        {% if next is defined %}
+            {# Type #}
+            {% if app.request.attributes.get('type') %}
+                <li><a rel="next" href="{{ path('app_main_loli_type', {
+                        'type': app.request.attributes.get('type'), 'number': next
+                    }) }}">+</a></li>
+            {# Gender #}
+            {% elseif app.request.attributes.get('gender') %}
+                <li><a rel="next" href="{{ path('app_main_loli_gender', {
+                        'gender': app.request.attributes.get('gender'), 'number': next
+                    }) }}">+</a></li>
+            {# No Params #}
+            {% else %}
+                <li><a rel="next" href="{{ path('app_main_loli', {'number': next}) }}">+</a></li>            
+            {% endif %}
+        {% else %}
+            <li style="display: none;" class="disabled">+</li>
+        {% endif %}
+
+    </ul>
+
+</nav>
+
+{% endif %}

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+{{ form_start(registrationForm) }}
+
+    <h2>Register here</h2>
+
+    {% for message in app.flashes('success') %}
+        <div class="success-flash">
+            <p class="message-flash">{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('warning') %}
+        <div class="warning-flash" id="register_flash">
+            <p class="padding-bottom-none bold">{{ message }}</p>
+            {{ form_errors(registrationForm.email) }}
+            {{ form_errors(registrationForm.name) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+            {{ form_errors(registrationForm.agreeTerms) }}
+        </div>
+    {% endfor %}
+
+    <div class="none pass-verif warning-flash">
+        <p class="none pass-verif padding-bottom-none bold">Complete the following step and try again.</p>
+        <ul class="none pass-verif">
+            <li class="none pass-verif pass-verif-msg"></li>
+        </ul>
+    </div>
+
+    <div>
+        {{ form_label(registrationForm.email) }}
+        {{ form_widget(registrationForm.email) }}
+    </div>
+
+    <div>
+        {{ form_label(registrationForm.name) }}
+        {{ form_widget(registrationForm.name) }}
+    </div>
+
+    <div>
+        {{ form_label(registrationForm.plainPassword) }}
+        {{ form_widget(registrationForm.plainPassword) }}
+    </div>
+
+    <div>
+        <label for="verif_pass" class="required">Repeat Password</label>
+        <input type="password" id="verif_pass" name="register_verif_pass" required="required" minlength="5" maxlength="30">
+    </div>
+
+    <div class="font-last-div-chexbox-space">
+        {{ form_label(registrationForm.agreeTerms) }}
+        {{ form_widget(registrationForm.agreeTerms) }}
+    </div>
+
+    <div>
+        {{ form_label(registrationForm.submit) }}
+        {{ form_widget(registrationForm.submit) }}
+    </div>
+
+    <h2>If you already have an account</h2>
+
+    <a class="a-button" href="{{ path('app_login') }}">Login</a>
+
+{{ form_end(registrationForm) }}
+
+{% endblock %}

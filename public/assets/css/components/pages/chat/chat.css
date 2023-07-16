@@ -1,0 +1,31 @@
+#chat_loop
+{
+    height: 359px;
+    width: 80%;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    margin-bottom: 20px;
+    border: 2px solid #000;
+}
+
+#chat_loop .chat_div
+{
+    display: flex;
+    align-items: flex-start;
+
+    padding: 20px;
+    border-bottom: 2px solid #000;
+}
+
+#chat_loop .chat_div:first-of-type
+{
+    border-bottom: 0;
+}
+
+#chat_loop .chat_div div
+{
+    align-items: flex-start;
+}
